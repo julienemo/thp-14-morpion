@@ -13,12 +13,17 @@ class Application
 
   def initialize
     choice = "c"
+    # this is a while true loop
+    # so that we can prope infinite rounds of game
+    # (each time the game ends when there is winner
+    # or the board is full without winner
+    # we'll ask whether you want to play again)
     while choice == "c" || choice == "C"
-      welcome
+      welcome # private
       @game = Game.new
       @game.game_on
-      new_round
-      end_prog
+      new_round # private
+      end_prog # private
     end
   end
 
@@ -34,6 +39,7 @@ class Application
   end
 
   def new_round
+
     puts "-" * 38
     puts "     Well, well, well...."
     puts "     All good things come to an end ><"
@@ -44,8 +50,9 @@ class Application
 
 
   def end_prog
+    # also a "while true" loop (du moins c'est ce qu'on essaie..)
     choice = "a"
-    until choice == "c" || choice == "C"|| choice == "Q"|| choice == "q"
+    until (choice == "c" || choice == "C"|| choice == "Q"|| choice == "q")
       print "> "
       choice = gets.chomp.downcase
       if (choice == "q" || choice == "quit")
@@ -58,6 +65,7 @@ class Application
         break
       else
         puts "     Come again ? Didn't get that..."
+        puts ""
         puts "     <Q> to quit or <C> to continue"
         print "> "
         choice = gets.chomp.downcase

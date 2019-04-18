@@ -19,13 +19,7 @@ class Game
   attr_reader :players_array, :show
 
   def initialize
-    sign_array = ['O','X']
-    @players_array = []
-    sign_array.each_with_index do |sign, index|
-      puts "Player #{index+1}, please choose a lucky name:"
-      @players_array << Player.new(sign)
-      puts ""
-    end
+    create_players # see priate methods
     @show = Show.new
   end
 
@@ -35,7 +29,8 @@ class Game
     puts "*** GAME STARTS HERE, GET READY!***  "
     puts ""
     puts "-" * 33
-    while game_status == 3
+    game_status
+    while game_status == 3  # for game_status, see private methods
       (0..1).each do |i|
         player = @players_array[i]
         one_turn(player, i)
@@ -60,31 +55,28 @@ class Game
 
   private
 
-  def one_turn(player, index)
-    puts "Press 'Enter' to continue"
-    gets.chomp
-    puts " "
-    puts "#{player.name}, choose from the following numbers"
-    puts "to replace it with your #{player.sign} !"
-    puts " !! Don't enter anything other than the numbers shown in the following view"
-    puts " !! Otherwise you get kicked out and we sware we tried to prevent this case"
-    puts " !! We admit sadly than we don't know how to make an infinite loop ><"
-    puts ""
-    @show.show_menu
-    puts ""
-    print "> Your choice here: "
-    answer = gets.chomp.to_i
-    puts " "
-    @show.board.case_array[answer].active(player.sign)
-    puts "You've made your move ! Here's your new board: "
-    show.show_status
-    puts ""
+  def create_players
+    sign_array = ['O','X']
+    @players_array = []
+    sign_array.each_with_index do |sign, index|
+      puts "Player #{index+1}, please choose a lucky name:"
+      @players_array << Player.new(sign)
+      puts ""
+    end
   end
+
+
 
 
 
   private
 
+  # this method is used to determine whether the game end
+  # either there is a winner and we need to know who this is
+  # else the board is full
+  # otherwise we continue
+  # each of the 3 cases has a separate method
+  # see lower
   def game_status
     contents = []
     @show.board.case_array.each do |x|
@@ -101,6 +93,25 @@ class Game
     end
   end
 
+  # this is one step
+  # one person choose on case to put "o" or "x"
+  # that's all
+  # of course with choices and the board status
+  def one_turn(player, index)
+    puts "Press 'Enter' to continue"
+    gets.chomp
+    puts " "
+    puts "#{player.name}, choose from the following numbers"
+    puts "to replace it with your #{player.sign} !"
+    warning
+    @show.show_menu
+    answer = gets.chomp.to_i
+    puts " "
+    @show.board.case_array[answer].active(player.sign)
+    show.show_status
+  end
+
+  # below are the little intermediary calculates
   def line?(array, a, b, c)
   	if (array[a] == array[b]) && (array[a] == array[c]) && array[a].class == String
   		return true
@@ -125,7 +136,13 @@ class Game
   	end
   end
 
-
+  def warning
+    puts ""
+    puts " !! Don't enter anything other than the numbers shown in the following view"
+    puts " !! Otherwise you get kicked out and we sware we tried to prevent this case"
+    puts " !! We admit sadly than we don't know how to make an infinite loop ><"
+    puts ""
+  end
 end
 
 #game = Game.new

@@ -39,6 +39,8 @@ class Show
     puts "     -----------"
     puts "      #{content_array[6]} | #{content_array[7]} | #{content_array[8]}"
     puts "     -----------"
+    puts ""
+    print "> Your choice here: "
   end
 
   def show_status
@@ -56,6 +58,8 @@ class Show
       end
     end
 
+    puts "You've made your move ! Here's your new board: "
+    puts ""
     puts "     -----------"
     puts "      #{content_array[0]} | #{content_array[1]} | #{content_array[2]}"
     puts "     -----------"
@@ -63,5 +67,6 @@ class Show
     puts "     -----------"
     puts "      #{content_array[6]} | #{content_array[7]} | #{content_array[8]}"
     puts "     -----------"
+    puts ""
   end
 end
