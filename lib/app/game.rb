@@ -5,7 +5,7 @@ require_relative 'player'
 require_relative 'board'
 require_relative 'boardcase'
 require_relative '../views/show'
-require_relative '../views/application'
+
 
 class Game
   #TO DO : la classe a plusieurs attr_accessor: le current_player (égal à un objet Player), le status (en cours, nul ou un objet Player s'il gagne), le Board et un array contenant les 2 joueurs.
@@ -109,5 +109,5 @@ class Game
 
 end
 
-game = Game.new
-game.game_on
+#game = Game.new
+#game.game_on
