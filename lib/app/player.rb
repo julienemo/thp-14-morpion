@@ -9,7 +9,7 @@ class Player
     # sign is either "x" or "o"
     # for the name, we'll ask
     # so no need to pass parameter
-    print "> "
+    print '> '
     @name = gets.chomp.capitalize
     @sign = sign
     puts "#{@name} created, your sign is #{@sign}."
