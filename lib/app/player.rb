@@ -12,4 +12,4 @@ class Player
   end
 end
 
-player1 = Player.new("Bidule", "x")
+#player1 = Player.new("Bidule", "x")
