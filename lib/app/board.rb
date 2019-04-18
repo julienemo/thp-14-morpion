@@ -1,7 +1,7 @@
 require 'bundler'
 Bundler.require
 
-require_relative "player"
+require_relative 'player'
 require_relative 'boardcase'
 
 class Board
