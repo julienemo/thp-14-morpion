@@ -10,7 +10,7 @@ class Board
   def initialize
     @case_array = []
     (0..8).each do |i|
-      @case_array[i] = BoardCase.new(i, i)
+      @case_array[i] = BoardCase.new(i)
     end
   end
 end

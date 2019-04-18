@@ -8,15 +8,23 @@ require_relative '../views/show'
 
 
 class Game
-  #TO DO : la classe a plusieurs attr_accessor: le current_player (égal à un objet Player), le status (en cours, nul ou un objet Player s'il gagne), le Board et un array contenant les 2 joueurs.
-  attr_accessor :current_player, :status, :board, :players_array, :show
+  # our definition of one game
+  # is what happens before there is a winner
+  # or the board is full
+  # in one game we need to know
+  # who plays and
+  # what the board views are
+  # which brings us to the two attibutes
+  # that we can't change publicly
+  attr_reader :players_array, :show
 
   def initialize
     sign_array = ['O','X']
     @players_array = []
     sign_array.each_with_index do |sign, index|
-      puts "Player #{index+1} : quel est ton prénom ?"
+      puts "Player #{index+1}, please choose a lucky name:"
       @players_array << Player.new(sign)
+      puts ""
     end
     @show = Show.new
   end
@@ -24,7 +32,7 @@ class Game
   def game_on
     puts "-" * 33
     puts ""
-    puts "  *** GAME STARTS HERE, GET READY!***  "
+    puts "*** GAME STARTS HERE, GET READY!***  "
     puts ""
     puts "-" * 33
     while game_status == 3
@@ -48,7 +56,6 @@ class Game
         end
       end
     end
-    #puts "la partie est terminée"
   end
 
   private
@@ -59,6 +66,9 @@ class Game
     puts " "
     puts "#{player.name}, choose from the following numbers"
     puts "to replace it with your #{player.sign} !"
+    puts " !! Don't enter anything other than the numbers shown in the following view"
+    puts " !! Otherwise you get kicked out and we sware we tried to prevent this case"
+    puts " !! We admit sadly than we don't know how to make an infinite loop ><"
     puts ""
     @show.show_menu
     puts ""

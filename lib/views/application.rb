@@ -35,17 +35,17 @@ class Application
 
   def new_round
     puts "-" * 38
-    puts "   Well, well, well...."
-    puts "   All good things come to an end ><"
+    puts "     Well, well, well...."
+    puts "     All good things come to an end ><"
     puts ""
-    puts "   Play again?"
-    puts "   Press <Q> to quit or <C> to continue"
+    puts "     Play again?"
+    puts "     Press <Q> to quit or <C> to continue"
   end
 
 
   def end_prog
-    choice = "c"
-    while choice == "c" || choice == "C"
+    choice = "a"
+    until choice == "c" || choice == "C"|| choice == "Q"|| choice == "q"
       print "> "
       choice = gets.chomp.downcase
       if (choice == "q" || choice == "quit")
@@ -65,5 +65,6 @@ class Application
     end
   end
 end
+
 
 Application.new
