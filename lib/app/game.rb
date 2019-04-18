@@ -19,8 +19,6 @@ class Game
       @players_array << Player.new(sign)
     end
     @show = Show.new
-    status = "on going"
-    @current_player = @players_array[0]
   end
 
   def game_on
@@ -29,12 +27,23 @@ class Game
     puts "  *** GAME STARTS HERE, GET READY!***  "
     puts ""
     puts "-" * 33
-    while continue? == true
+    while game_status == 3
       (0..1).each do |i|
         player = @players_array[i]
         one_turn(player, i)
-        if !continue? == true
-          puts "#{player.name} with #{player.sign} won !! Congrats !"
+        if game_status == 1
+          puts "-"*38
+          puts ""
+          puts "     #{player.name} with #{player.sign} won !! Congrats !"
+          puts ""
+          puts "-"*38
+          break
+        elsif game_status == 2
+          puts "-"*38
+          puts ""
+          puts "Oups, tie......"
+          puts ""
+          puts "-"*38
           break
         end
       end
@@ -66,19 +75,19 @@ class Game
 
   private
 
-  def continue?
+  def game_status
     contents = []
     @show.board.case_array.each do |x|
       contents << x.content
     end
     if one_line?(contents)
-      puts "We have a winner !!"
-      return false
+      puts "     We have a winner !!"
+      return 1
     elsif board_full?(contents)
-      puts "Oups, tie...."
-      return false
+      puts "    Oups, tie...."
+      return 2
     else
-      return true
+      return 3
     end
   end
 

@@ -12,11 +12,14 @@ class Application
   attr_reader :game
 
   def initialize
-    welcome
-    @game = Game.new
-    @game.game_on
-    puts "notes Julie : et on va demande au jouer si une autre partie"
-    end_prog
+    choice = "c"
+    while choice == "c" || choice == "C"
+      welcome
+      @game = Game.new
+      @game.game_on
+      new_round
+      end_prog
+    end
   end
 
   private
@@ -30,21 +33,35 @@ class Application
     puts "   "+"-" * 33
   end
 
+  def new_round
+    puts "-" * 38
+    puts "   Well, well, well...."
+    puts "   All good things come to an end ><"
+    puts ""
+    puts "   Play again?"
+    puts "   Press <Q> to quit or <C> to continue"
+  end
+
+
   def end_prog
-    print "> "
-    choice = gets.chomp.downcase
-    puts choice
-    case choice
-    when ( "q" ||  "quit")
-      puts "You're right, it's time. Seeya soon though !"
-      exit
-    when ( "c" ||  "continue")
-      puts "Of course, anytime."
-      puts "notes Julie : Mets une autre partie en boucle"
-    else
-      puts "Come again ? Didn't get that..."
-      puts "<Q> to quit or <C> to continue"
-      puts "notes Julie :Je gere pas ce genre de boucle au secours"
+    choice = "c"
+    while choice == "c" || choice == "C"
+      print "> "
+      choice = gets.chomp.downcase
+      if (choice == "q" || choice == "quit")
+        puts "     You're right, it's time. Seeya soon though !"
+        exit
+      elsif
+        (choice == "c" || choice == "continue")
+        puts "     Of course, anytime."
+        puts ""
+        break
+      else
+        puts "     Come again ? Didn't get that..."
+        puts "     <Q> to quit or <C> to continue"
+        print "> "
+        choice = gets.chomp.downcase
+      end
     end
   end
 end
