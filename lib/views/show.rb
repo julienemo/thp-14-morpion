@@ -21,11 +21,11 @@ class Show
 
   def show_status
     board_case = @board.case_array
-    puts " #{board_case[0].content} | #{board_case[0].content} | #{board_case[0].content}"
+    puts " #{board_case[0].content} | #{board_case[1].content} | #{board_case[2].content}"
     puts "-----------"
-    puts " #{board_case[0].content} | #{board_case[0].content} | #{board_case[0].content}"
+    puts " #{board_case[3].content} | #{board_case[4].content} | #{board_case[5].content}"
     puts "-----------"
-    puts " #{board_case[0].content} | #{board_case[0].content} | #{board_case[0].content}" 
+    puts " #{board_case[6].content} | #{board_case[7].content} | #{board_case[8].content}" 
   end
 end
 
