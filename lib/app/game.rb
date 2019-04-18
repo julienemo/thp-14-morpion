@@ -62,7 +62,7 @@ class Game
     gets.chomp
     puts " "
     puts "#{player.name}, choose from the following numbers"
-    puts "to replace it with your sign !"
+    puts "to replace it with your #{player.sign} !"
     @show.show_menu
     print "> Your choice here: "
     answer = gets.chomp.to_i
@@ -82,11 +82,15 @@ class Game
     @show.board.case_array.each do |x|
       contents << x.content
     end
-  	if one_line?(contents)
-  		return false
-  	else
-  		return true
-  	end
+    if one_line?(contents)
+      puts "victory!"
+      return false
+    elsif board_full?(contents)
+      puts "Tie!"
+      return false
+    else
+      return true
+    end   
   end
 
   def line?(array, a, b, c)
@@ -106,10 +110,10 @@ class Game
   end
 
   def board_full?(array)
-  	if array.join !=~ /\d/
-  		return true
-  	else
+  	if array.join =~ /[0-9]/
   		return false
+  	else
+  		return true
   	end
   end
 
