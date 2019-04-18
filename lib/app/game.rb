@@ -56,7 +56,7 @@ class Game
   private
 
   def create_players
-    sign_array = ['O','X']
+    sign_array = ['O'.colorize(:blue),'X'.colorize(:red)]
     @players_array = []
     sign_array.each_with_index do |sign, index|
       puts "Player #{index+1}, please choose a lucky name:"
