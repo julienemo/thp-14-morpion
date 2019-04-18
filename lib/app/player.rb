@@ -9,13 +9,7 @@ class Player
     print "> "
     @name = gets.chomp.capitalize
     @sign = sign
-    puts "Player #{@name} created, your sign is #{@sign}."
+    puts "#{@name} created, your sign is #{@sign}."
   end
 end
 
-#array = ['O','X']
-#players = []
-#array.each do |sign|
-#  players << Player.new(sign)
-#end
-#print players
