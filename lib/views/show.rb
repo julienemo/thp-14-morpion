@@ -5,10 +5,10 @@ require_relative '../app/board'
 
 class Show
  #TO DO : affiche sur le terminal l'objet de classe Board en entrée. S'active avec un Show.new.show_board(instance_de_Board)
-
-  #def initialize(board) 
-   # @board = board
-  #end
+ attr_reader :board
+  def initialize
+   @board = Board.new
+  end
 
   def show_menu
     board_case = @board.case_array
