@@ -6,9 +6,9 @@ require_relative '../app/board'
 class Show
  #TO DO : affiche sur le terminal l'objet de classe Board en entrée. S'active avec un Show.new.show_board(instance_de_Board)
 
-  def initialize(board) 
-    @board = board
-  end
+  #def initialize(board) 
+   # @board = board
+  #end
 
   def show_menu
     board_case = @board.case_array
@@ -35,13 +35,13 @@ class Show
     puts " #{content_array[6]} | #{content_array[7]} | #{content_array[8]}" 
   end
 end
-board = Board.new
-show = Show.new(board)
-player1 = Player.new("x")
-board.play_turn(player1, 8)
+#board = Board.new
+#show = Show.new(board)
+#player1 = Player.new("x")
+#board.play_turn(player1, 8)
 #board.case_array.each do |cell|
  #puts cell.content
 #end
-show.show_menu
-show.show_status
+#show.show_menu
+#show.show_status
 

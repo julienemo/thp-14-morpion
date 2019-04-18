@@ -33,6 +33,13 @@ class Board
     show.show_status
   end
   
+  def continue?(array)
+  	if board_full?(array) || one_line?(array)
+  		return false
+  	else
+  		return true
+  	end
+  end
   private
 
   def line?(array, a, b, c)
@@ -56,14 +63,6 @@ class Board
   		return true
   	else
   		return false
-  	end
-  end
-
-  def continue?(array)
-  	if board_full?(array) || one_line?(array)
-  		return false
-  	else
-  		return true
   	end
   end
 
