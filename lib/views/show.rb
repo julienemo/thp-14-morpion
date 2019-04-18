@@ -20,17 +20,20 @@ class Show
   end
 
   def show_status
-
-    #@board.case_array.each do |x|
-      #if x.content.class == String
-       # affiche = x.content  
-      #end
-    board_case = @board.case_array
-    puts " #{board_case[0].content} | #{board_case[1].content} | #{board_case[2].content}"
+    content_array = []
+    @board.case_array.each do |x|
+      if x.content.class == String
+       content_array << x.content
+      else
+        content_array << " "
+      end
+    end
+    
+    puts " #{content_array[0]} | #{content_array[1]} | #{content_array[2]}"
     puts "-----------"
-    puts " #{board_case[3].content} | #{board_case[4].content} | #{board_case[5].content}"
+    puts " #{content_array[3]} | #{content_array[4]} | #{content_array[5]}"
     puts "-----------"
-    puts " #{board_case[6].content} | #{board_case[7].content} | #{board_case[8].content}" 
+    puts " #{content_array[6]} | #{content_array[7]} | #{content_array[8]}" 
     
   
 
@@ -44,4 +47,5 @@ board.play_turn(player1, 8)
  #puts cell.content
 #end
 show.show_menu
+show.show_status
 
