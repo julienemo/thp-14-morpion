@@ -12,11 +12,11 @@ class Board
 
     @case_array = []
     (0..8).each do |i|
-      @case_array[i] = BoardCase.new(i)
+      @case_array[i] = BoardCase.new(i, i)
     end
 
     @case_array.each do |cell|
-      puts cell.content
+       #puts cell.content
     end
     #TO DO :
     #Quand la classe s'initialize, elle doit créer 9 instances BoardCases
@@ -43,11 +43,3 @@ class Board
 #TO DO : une méthode qui vérifie le plateau et indique s'il y a un vainqueur ou match nul
   end
 end
-
-board = Board.new
-player1 = Player.new("x")
-board.play_turn(player1, 8)
-board.case_array.each do |cell|
-  puts cell.content
-end
-

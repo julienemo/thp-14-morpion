@@ -7,15 +7,15 @@ class BoardCase
 
   attr_reader :position, :content
 
-  def initialize(position)
+  def initialize(position, index)
     @position = position
-    @content = ""
-    puts "Empty board case n.#{position} created."
+    @content = index
+    #puts "Empty board case n.#{position} created."
   end
 
   def active(content)
     @content = content
-    puts "Case #{@position} activated with #{@content}"
+    #puts "Case #{@position} activated with #{@content}"
   end
 end
 
