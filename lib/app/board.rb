@@ -23,20 +23,20 @@ class Board
     #Ces instances sont rangées dans un array/hash qui est l'attr_accessor de la classe
   end
 
-  def play_turn(player, index)
+  def play_turn(player, index, board)
+    puts "#{player.name}, choose from the following numbers"
+    puts "to replace it with your sige !"
     show.show_menu
-    # @case_array[index].active(player.sign)
-    # player_choice = []
-	  puts "Please choose a case:"
-    player_choice = gets.chomp
-    @case_array[player_choice].active(player.sign)
+    print "> "
+    answer = gets.chomps.to_i
+    board[answer].active(player.sign)
     show.show_status
   end
   
   private
 
   def line?(array, a, b, c)
-  	if (array[a] == array[b]) && (array[a] == array[c]) && array[a] != 0 
+  	if (array[a] == array[b]) && (array[a] == array[c]) && array[a].class == String
   		return true
   	else
   		return false
