@@ -22,10 +22,13 @@ class Game
     #@board = Board.new
     status = "on going"
     @current_player = @players_array[0]
-    puts "les joueurs sont "
   end
 
   def turn
+    puts "-" * 33
+    puts ""
+    puts "GAME STARTS HERE, GET READY!"
+    puts "-" * 33
     while continue? == true
       (0..1).each do |i|
         play_turn(@players_array[i], i)
@@ -55,13 +58,19 @@ class Game
   end
 
   def play_turn(player, index)
+    puts "Press 'Enter' to continue"
+    gets.chomp
+    puts " "
     puts "#{player.name}, choose from the following numbers"
-    puts "to replace it with your sige !"
+    puts "to replace it with your sign !"
     @show.show_menu
-    print "> "
+    print "> Your choice here: "
     answer = gets.chomp.to_i
+    puts " "
     @show.board.case_array[answer].active(player.sign)
+    puts "here's the game's status: "
     show.show_status
+
   end
   
   
