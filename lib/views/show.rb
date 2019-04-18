@@ -28,16 +28,12 @@ class Show
         content_array << " "
       end
     end
-    
     puts " #{content_array[0]} | #{content_array[1]} | #{content_array[2]}"
     puts "-----------"
     puts " #{content_array[3]} | #{content_array[4]} | #{content_array[5]}"
     puts "-----------"
     puts " #{content_array[6]} | #{content_array[7]} | #{content_array[8]}" 
-    
-  
-
-end
+  end
 end
 board = Board.new
 show = Show.new(board)

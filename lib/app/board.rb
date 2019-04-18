@@ -24,14 +24,13 @@ class Board
   end
 
   def play_turn(player, index)
-    @case_array[index].active(player.sign)
-    player_choice = []
-	puts "Please choose a case:"
-	player_choice = gets.chomp
-	
-    #TO DO : une méthode qui :
-    #1) demande au bon joueur ce qu'il souhaite faire
-    #2) change la BoardCase jouée en fonction de la valeur du joueur (X ou O)
+    show.show_menu
+    # @case_array[index].active(player.sign)
+    # player_choice = []
+	  puts "Please choose a case:"
+    player_choice = gets.chomp
+    @case_array[player_choice].active(player.sign)
+    show.show_status
   end
   
   private
