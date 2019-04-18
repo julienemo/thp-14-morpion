@@ -1,7 +1,7 @@
 require 'bundler'
 Bundler.require
 
-require_relative('board')
+require_relative '../app/board'
 
 class Show
  #TO DO : affiche sur le terminal l'objet de classe Board en entrée. S'active avec un Show.new.show_board(instance_de_Board)
@@ -18,6 +18,5 @@ puts "-----------"
 puts " #{board_case[3]} | #{board_case[4]} | #{board_case[5]} "
 puts "-----------"
 puts " #{board_case[6]} | #{board_case[7]} | #{board_case[8]} " 
-   
-
   end
+end
