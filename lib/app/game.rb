@@ -60,7 +60,7 @@ class Game
     @show.show_menu
     print "> "
     answer = gets.chomp.to_i
-    board[answer].active(player.sign)
+    @show.board.case_array[answer].active(player.sign)
     show.show_status
   end
   
