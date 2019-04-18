@@ -19,61 +19,50 @@ class Game
       @players_array << Player.new(sign)
     end
     @show = Show.new
-    #@board = Board.new
     status = "on going"
     @current_player = @players_array[0]
   end
 
-  def turn
+  def game_on
     puts "-" * 33
     puts ""
-    puts "GAME STARTS HERE, GET READY!"
+    puts "  *** GAME STARTS HERE, GET READY!***  "
+    puts ""
     puts "-" * 33
     while continue? == true
       (0..1).each do |i|
-        play_turn(@players_array[i], i)
+        player = @players_array[i]
+        one_turn(player, i)
         if !continue? == true
-         break
+          puts "#{player.name} with #{player.sign} won !! Congrats !"
+          break
         end
       end
     end
-    puts "la partie est terminée"
+    #puts "la partie est terminée"
   end
 
-  def switch_player
-    if current_player = @players_array[0]
-      current_player = @players_array[1]
-    else
-      current_player = @players_array[0]
-    end
-  end
+  private
 
-  def new_round
-    # TO DO : relance une partie en initialisant un nouveau board mais en gardant les mêmes joueurs.
-  end
-
-  def game_end
-    # TO DO : permet l'affichage de fin de partie quand un vainqueur est détecté ou si il y a match nul
-    # END SCREEN
-  end
-
-  def play_turn(player, index)
+  def one_turn(player, index)
     puts "Press 'Enter' to continue"
     gets.chomp
     puts " "
     puts "#{player.name}, choose from the following numbers"
     puts "to replace it with your #{player.sign} !"
+    puts ""
     @show.show_menu
+    puts ""
     print "> Your choice here: "
     answer = gets.chomp.to_i
     puts " "
     @show.board.case_array[answer].active(player.sign)
-    puts "here's the game's status: "
+    puts "You've made your move ! Here's your new board: "
     show.show_status
-
+    puts ""
   end
-  
-  
+
+
 
   private
 
@@ -83,14 +72,14 @@ class Game
       contents << x.content
     end
     if one_line?(contents)
-      puts "victory!"
+      puts "We have a winner !!"
       return false
     elsif board_full?(contents)
-      puts "Tie!"
+      puts "Oups, tie...."
       return false
     else
       return true
-    end   
+    end
   end
 
   def line?(array, a, b, c)
@@ -121,4 +110,4 @@ class Game
 end
 
 game = Game.new
-game.turn
+game.game_on
