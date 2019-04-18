@@ -11,7 +11,7 @@ class Show
   attr_reader :board
 
   def initialize
-   @board = Board.new
+    @board = Board.new
   end
 
   def show_menu
@@ -26,21 +26,21 @@ class Show
     # the case won't show number in the menu
     board_case.each do |x|
       if x.content.class == String
-       content_array << " "
+        content_array << ' '
       else
         content_array << x.content
       end
     end
 
-    puts "     -----------"
+    puts '     -----------'
     puts "      #{content_array[0]} | #{content_array[1]} | #{content_array[2]}"
-    puts "     -----------"
+    puts '     -----------'
     puts "      #{content_array[3]} | #{content_array[4]} | #{content_array[5]}"
-    puts "     -----------"
+    puts '     -----------'
     puts "      #{content_array[6]} | #{content_array[7]} | #{content_array[8]}"
-    puts "     -----------"
-    puts ""
-    print "> Your choice here: "
+    puts '     -----------'
+    puts ''
+    print '> Your choice here: '
   end
 
   def show_status
@@ -52,21 +52,21 @@ class Show
     # the case won't show number in the menu
     @board.case_array.each do |x|
       if x.content.class == String
-       content_array << x.content
+       @content_array << x.content
       else
-        content_array << " "
+        content_array << ' '
       end
     end
 
     puts "You've made your move ! Here's your new board: "
-    puts ""
-    puts "     -----------"
+    puts ''
+    puts '     -----------'
     puts "      #{content_array[0]} | #{content_array[1]} | #{content_array[2]}"
-    puts "     -----------"
+    puts '     -----------'
     puts "      #{content_array[3]} | #{content_array[4]} | #{content_array[5]}"
-    puts "     -----------"
+    puts '     -----------'
     puts "      #{content_array[6]} | #{content_array[7]} | #{content_array[8]}"
-    puts "     -----------"
-    puts ""
+    puts '     -----------'
+    puts ''
   end
 end
