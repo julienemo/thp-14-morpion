@@ -1,5 +1,5 @@
 require 'bundler'
-Bundler.requirer
+Bundler.require
 
 class App
   def initialize
