@@ -6,7 +6,6 @@ require_relative 'board'
 require_relative 'boardcase'
 require_relative '../views/show'
 
-
 class Game
   # our definition of one game
   # is what happens before there is a winner
@@ -24,29 +23,29 @@ class Game
   end
 
   def game_on
-    puts "-" * 33
-    puts ""
-    puts "*** GAME STARTS HERE, GET READY!***  "
-    puts ""
-    puts "-" * 33
+    puts '-' * 33
+    puts ''
+    puts '*** GAME STARTS HERE, GET READY!***  '
+    puts ''
+    puts '-' * 33
     game_status
-    while game_status == 3  # for game_status, see private methods
+    while game_status == 3 # for game_status, see private methods
       (0..1).each do |i|
         player = @players_array[i]
         one_turn(player, i)
         if game_status == 1
-          puts "-"*38
-          puts ""
-          puts "     #{player.name} with #{player.sign} won !! Congrats !"
-          puts ""
-          puts "-"*38
+          puts '-' * 38
+          puts ''
+          puts "     #{player.name} with the sign #{player.sign}, won!! Congrats!"
+          puts ''
+          puts '-' * 38
           break
         elsif game_status == 2
-          puts "-"*38
-          puts ""
-          puts "Oups, tie......"
-          puts ""
-          puts "-"*38
+          puts '-' * 38
+          puts ''
+          puts 'Oups, tie......'
+          puts ''
+          puts '-' * 38
           break
         end
       end
@@ -56,18 +55,14 @@ class Game
   private
 
   def create_players
-    sign_array = ['O'.colorize(:blue),'X'.colorize(:red)]
+    sign_array = ['O'.colorize(:blue), 'X'.colorize(:red)]
     @players_array = []
     sign_array.each_with_index do |sign, index|
-      puts "Player #{index+1}, please choose a lucky name:"
+      puts "Player #{index + 1}, please choose a lucky name:"
       @players_array << Player.new(sign)
-      puts ""
+      puts ''
     end
   end
-
-
-
-
 
   private
 
@@ -83,10 +78,10 @@ class Game
       contents << x.content
     end
     if one_line?(contents)
-      puts "     We have a winner !!"
+      puts '     We have a winner !!'
       return 1
     elsif board_full?(contents)
-      puts "    Oups, tie...."
+      puts '    Oups, tie....'
       return 2
     else
       return 3
@@ -100,7 +95,7 @@ class Game
   def one_turn(player, index)
     puts "Press 'Enter' to continue"
     gets.chomp
-    puts " "
+    puts ' '
     puts "#{player.name}, choose from the following numbers"
     puts "to replace it with your #{player.sign} !"
     warning
@@ -113,7 +108,7 @@ class Game
 
   # below are the little intermediary calculates
   def line?(array, a, b, c)
-  	if (array[a] == array[b]) && (array[a] == array[c]) && array[a].class == String
+    if (array[a] == array[b]) && (array[a] == array[c]) && array[a].class == String
   		return true
   	else
   		return false
@@ -137,13 +132,10 @@ class Game
   end
 
   def warning
-    puts ""
+    puts ''
     puts " !! Don't enter anything other than the numbers shown in the following view"
-    puts " !! Otherwise you get kicked out and we sware we tried to prevent this case"
+    puts ' !! Otherwise you get kicked out and we sware we tried to prevent this case'
     puts " !! We admit sadly than we don't know how to make an infinite loop ><"
-    puts ""
+    puts ''
   end
 end
-
-#game = Game.new
-#game.game_on
