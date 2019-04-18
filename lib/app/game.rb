@@ -10,14 +10,14 @@ class Game
     puts "Joueur 1, vous allez commencez, quel est votre prénom ?"
     print "> "
     input1 = gets_chomp
-    player_one = Player.new(input1, "O")
+    @player_one = Player.new(input1, "O")
     puts "-" * 10
     puts "Joueur 2, quel est votre prénom ?"
     print "> "
     input2 = gets_chomp
-    player_two = Player.new(input2, "X")
+    @player_two = Player.new(input2, "X")
 
-    players_array = [player_one, player_two]
+    players_array = [@player_one, @player_two]
     new_board = Board.new
     status = "on going"
 
@@ -30,7 +30,8 @@ class Game
 
   def new_round
     # TO DO : relance une partie en initialisant un nouveau board mais en gardant les mêmes joueurs.
-    # 
+     new_round = Board.new
+     players_array = [@player_one, @player_two]
   end
 
   def game_end
