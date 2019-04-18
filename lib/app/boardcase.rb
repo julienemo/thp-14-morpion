@@ -4,7 +4,7 @@ Bundler.require
 require_relative "player"
 
 class BoardCase
-  attr_accessor :content
+  
   attr_reader :position, :content
 
   def initialize(position)
@@ -20,8 +20,8 @@ class BoardCase
 end
 
 case_array = []
-  (1..9).each do |i|
-    case_array[i-1] = BoardCase.new(i)
+  (0..8).each do |i|
+    case_array[i] = BoardCase.new(i)
   end
 
 player1 = Player.new("Bidule", "x")
