@@ -18,18 +18,29 @@ class Game
       puts "Player #{index+1} : quel est ton prénom ?"
       players_array << Player.new(sign)
     end
-    board = Board.new
+    @board = Board.new
     show = Show.new
     status = "on going"
     @current_player = players_array[0]
   end
 
   def turn
-    #TO DO : méthode faisant appelle aux méthodes des autres classes (notamment à l'instance de Board). Elle affiche le plateau, demande au joueur ce qu'il joue, vérifie si un joueur a gagné, passe au joueur suivant si la partie n'est pas finie.
     while board.continue? == true
-      board.play_turn
+      players_array[0..1].each do |i|
+        players_array[i].play_turn
+        if !continue? == true
+         break
+        end
+      end
+    end
+    game_end
+  end
+
+  def switch_player
+    if current_player = players_array[0]
+      current_player = players_array[1]
     else
-      game_end
+      current_player = players_array[0]
     end
   end
 
@@ -49,3 +60,4 @@ class Game
 end
 
 game = Game.new
+game.turn
