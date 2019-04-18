@@ -1,7 +1,9 @@
 require 'bundler'
 Bundler.require
 
-require_relative 'player.rb'
+require_relative 'player'
+require_relative 'board'
+require_relative 'boardcase'
 class Game
   #TO DO : la classe a plusieurs attr_accessor: le current_player (égal à un objet Player), le status (en cours, nul ou un objet Player s'il gagne), le Board et un array contenant les 2 joueurs.
   attr_accessor :current_player, :status, :board, :players_array
@@ -12,10 +14,9 @@ class Game
     sign_array.each_with_index do |sign, index|
       puts "Player #{index+1} : quel est ton prénom ?"
       players_array << Player.new(sign)
-  end    
+    end
     new_board = Board.new
     status = "on going"
-
     current_player = players_array[0]
   end
 
@@ -32,7 +33,7 @@ class Game
   def game_end
     # TO DO : permet l'affichage de fin de partie quand un vainqueur est détecté ou si il y a match nul
     # END SCREEN
-  end      
+  end
 
 end
 

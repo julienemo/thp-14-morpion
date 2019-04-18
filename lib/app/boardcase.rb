@@ -4,7 +4,7 @@ Bundler.require
 require_relative "player"
 
 class BoardCase
-  
+
   attr_reader :position, :content
 
   def initialize(position)
@@ -24,7 +24,7 @@ case_array = []
     case_array[i] = BoardCase.new(i)
   end
 
-player1 = Player.new("Bidule", "x")
-player2 = Player.new("Machin", "o")
-case_array[1].active(player1.sign)
-case_array[5].active(player2.sign)
+#player1 = Player.new("Bidule", "x")
+#player2 = Player.new("Machin", "o")
+#case_array[1].active(player1.sign)
+#case_array[5].active(player2.sign)

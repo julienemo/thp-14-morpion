@@ -9,10 +9,10 @@ class Board
 
 
   def initialize
-  	case_array = []
-  (0..8).each do |i|
-    case_array[i] = BoardCase.new(i)
-   end
+    case_array = []
+    (0..8).each do |i|
+      case_array[i] = BoardCase.new(i)
+    end
 
     #TO DO :
     #Quand la classe s'initialize, elle doit créer 9 instances BoardCases
@@ -34,12 +34,7 @@ class Board
   		[1,4,7],
   		[2,5,8],
   		[0,4,8],
-  		[2,4,6]
-
-
-    #TO DO : une méthode qui vérifie le plateau et indique s'il y a un vainqueur ou match nul
+  		[2,4,6]]
+#TO DO : une méthode qui vérifie le plateau et indique s'il y a un vainqueur ou match nul
   end
-
-
-
-
+end
