@@ -19,10 +19,10 @@ class BoardCase
   end
 end
 
-case_array = []
-  (0..8).each do |i|
-    case_array[i] = BoardCase.new(i)
-  end
+#case_array = []
+#  (0..8).each do |i|
+#    case_array[i] = BoardCase.new(i)
+#  end
 
 #player1 = Player.new("Bidule", "x")
 #player2 = Player.new("Machin", "o")
