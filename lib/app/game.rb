@@ -80,12 +80,13 @@ class Game
     if one_line?(contents)
       puts '     We have a winner !!'
       return 1
-    elsif board_full?(contents)
+    elsif board_full?(contents.join.uncolorize)
       puts '    Oups, tie....'
       return 2
     else
       return 3
     end
+
   end
 
   # this is one step
@@ -123,9 +124,9 @@ class Game
   	end
   end
 
-  def board_full?(array)
-  	if array.join =~ /[0-9]/
-  		return false
+  def board_full?(string)
+  	if string =~ /\d/
+      return false
   	else
   		return true
   	end
