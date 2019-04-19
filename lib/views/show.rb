@@ -52,7 +52,7 @@ class Show
     # the case won't show number in the menu
     @board.case_array.each do |x|
       if x.content.class == String
-       @content_array << x.content
+        content_array << x.content
       else
         content_array << ' '
       end
